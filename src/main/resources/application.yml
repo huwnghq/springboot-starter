@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: springboot-postgres-jwt
+  datasource:
+    url: jdbc:postgresql://postgres:5432/example
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    # Setting spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation = true to prevent warning of Hibernate exception
+    # SQLFeatureNotSupportedException: Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        show_sql: true
+#authentication:
+#  secret-key: ${{ SECRET_KEY }}
+#  access-token:
+#    expiration-in-seconds: 1800
+#  refresh-token:
+#    expiration-in-seconds: 86400
