@@ -22,6 +22,6 @@ public class UserController {
     @ResponseBody
     public List<User> findAllUsers() {
         return userService.findAll();
-//        return userService.findByTop(3);
+//        return userService.findByTop(1);
     }
 }
